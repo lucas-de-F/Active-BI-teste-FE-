@@ -1,0 +1,14 @@
+.texto-bungee {
+    font-family: 'Passion One', cursive;
+    font-size: 2rem; /* Ajuste o tamanho conforme necessário */
+  }
+  
+  .texto-mono {
+    font-family: 'Rubik Mono One', sans-serif;
+    font-size: 2rem; /* Ajuste o tamanho conforme necessário */
+  }
+  ::ng-deep input[type="text"] {
+    border: none;
+    border-bottom: solid 2px black;
+    outline: none;
+  }

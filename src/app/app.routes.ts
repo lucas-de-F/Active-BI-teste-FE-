@@ -1,3 +1,57 @@
 import { Routes } from '@angular/router';
+import { NoAuthGuard } from './guards/noAuthGuard.guard';
+import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './guards/AuthGuard.guard';
+import { TeamScoreComponent } from './team-score/team-score.component';
 
-export const routes: Routes = [];
+export const routes: Routes = [
+    {
+    
+            path: 'auth',
+            canActivate: [NoAuthGuard],
+            canActivateChild: [NoAuthGuard],
+            data: {
+                layout: 'empty',
+                expectedRoles: [],
+            },
+            children: [
+                {
+                    path: 'sign-in',
+                    component: LoginComponent
+                },
+            ],
+    },
+    {
+        path: 'app/user',
+        canActivate: [AuthGuard],
+        canActivateChild: [AuthGuard],
+        data: {
+            expectedRoles: ['User'],
+        },
+        children: [
+            {
+                path: 'team-score',
+                component: TeamScoreComponent
+            },
+        ],
+    },
+    {
+        path: 'app/admin',
+        canActivate: [AuthGuard],
+        canActivateChild: [AuthGuard],
+        data: {
+            expectedRoles: ['Admin'],
+        },
+        children: [
+            {
+                path: 'dashboard',
+                component: TeamScoreComponent
+            },
+        ],
+    },
+    {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'auth/sign-in',
+    },
+];
