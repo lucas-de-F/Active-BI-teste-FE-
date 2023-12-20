@@ -24,7 +24,7 @@ export class NoAuthGuard implements CanActivate {
         if (localStorage.getItem('token') === null) {
             return true;
         } else {
-            this.router.navigate(['/app/inicio']);
+            this.router.navigate(['/authorization']);
             return false;
         }
     }

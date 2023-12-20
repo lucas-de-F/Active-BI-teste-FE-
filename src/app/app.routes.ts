@@ -3,6 +3,7 @@ import { NoAuthGuard } from './guards/noAuthGuard.guard';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './guards/AuthGuard.guard';
 import { TeamScoreComponent } from './team-score/team-score.component';
+import { AuthorizationComponent } from './authorization/authorization.component';
 
 export const routes: Routes = [
     {
@@ -20,6 +21,20 @@ export const routes: Routes = [
                     component: LoginComponent
                 },
             ],
+    },
+    {
+        path: 'authorization',
+        canActivate: [AuthGuard],
+        canActivateChild: [AuthGuard],
+        data: {
+            expectedRoles: [],
+        },
+        children: [
+            {
+                path: '',
+                component: AuthorizationComponent
+            },
+        ],
     },
     {
         path: 'app/user',
