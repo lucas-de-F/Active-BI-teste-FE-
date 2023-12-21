@@ -1,0 +1,9 @@
+<ng-container *ngIf="formGroup">
+
+<div [class]="'mt-' + mt + 'mb-'+ mb" [formGroup]="formGroup"  >
+    <div class="texto-passion  text-sm" style="font-size: 20px;">{{name}}</div>
+    <input  [formControlName]="formGroup.get(formControlName)" type="text" [placeholder]="name?.toLowerCase()"
+    class="border-zinc-950 w-full border-b-2 py-2 rounded-md px-2" />
+    <ng-content></ng-content>
+</div>
+</ng-container>

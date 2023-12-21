@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
 import { NoAuthGuard } from './guards/noAuthGuard.guard';
-import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './guards/AuthGuard.guard';
-import { TeamScoreComponent } from './team-score/team-score.component';
-import { AuthorizationComponent } from './authorization/authorization.component';
+import { TeamScoreComponent } from './routes/team-score/team-score.component';
+import { AuthorizationComponent } from './routes/authorization/authorization.component';
+import { LoginComponent } from './routes/login/login.component';
 
 export const routes: Routes = [
     {

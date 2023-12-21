@@ -10,17 +10,18 @@ import {
   RouterModule,
   RouterOutlet,
 } from '@angular/router';
-import { LoginComponent } from './login/login.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { routes } from './app.routes';
 import { TokenInterceptorService } from './guards/auth.interceptor';
+import { LoginComponent } from './routes/login/login.component';
+import { TextFormComponent } from './inputs/text-form/text-form.component';
 const routerConfig: ExtraOptions = {
   preloadingStrategy: PreloadAllModules,
   scrollPositionRestoration: 'enabled',
 };
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, ],
   imports: [
     BrowserModule,
     CommonModule,

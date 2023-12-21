@@ -3,8 +3,9 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, Inject, importProvidersFrom } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterOutlet } from '@angular/router';
-import { environment } from '../environments/environment';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
+import { environment } from '../../environments/environment';
+import { TextFormComponent } from '../../inputs/text-form/text-form.component';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,8 @@ import { ToastrModule, ToastrService } from 'ngx-toastr';
     RouterOutlet,
     ReactiveFormsModule,
     HttpClientModule,
-    ToastrModule
+    ToastrModule,
+    TextFormComponent
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',

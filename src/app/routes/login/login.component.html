@@ -1,0 +1,21 @@
+<div class="flex flex-col items-center  justify-center ">
+
+    <div class="bg-white shadow-md p-8 w-[75vw] md:w-[400px] rounded-md">
+        <h1 class="texto-bungee text-orange-500 text-center text-sm mb-8" style="font-size: 50px;">LOGIN </h1>
+        <div class="flex flex-col mb-8" [formGroup]="form">
+
+            <div class="mt-2 mb-4">
+                <div class="texto-passion  text-sm" style="font-size: 20px;">USUÁRIO</div>
+                <input formControlName="user" type="text" placeholder="Usuário"
+                    class="border-zinc-950 w-full border-b-2 py-2 rounded-md px-2" />
+                <div *ngIf="checkInput('user', 'required')" class="text-red-700">Usuário é obrigatório</div>
+            </div>
+            <div class="mt-2 mb-4">
+                <div class="texto-passion  text-sm" style="font-size: 20px;">SENHA</div>
+                <input formControlName="pass" type="text" placeholder="******"
+                    class="border-zinc-950 w-full border-b-2 py-2 rounded-md px-2" />
+                <div *ngIf="checkInput('pass', 'required')" class="text-red-700">Senha é obrigatória</div>
+            </div>
+        </div>
+    </div>
+</div>
