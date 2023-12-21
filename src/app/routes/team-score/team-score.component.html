@@ -1,1 +1,138 @@
-<p>team-score works!</p>
+<div class="flex flex-col items-center  justify-center ">
+
+    <div class="bg-white shadow-md p-4 w-[75vw] md:w-[400px] rounded-md">
+        <h1 class="texto-bungee text-orange-400 text-center text-sm mb-4" style="font-size: 20px;">Pontuação Autônomo
+        </h1>
+        <div class="texto-passion  text-sm font-bold text-center" style="font-size: 16px;">Marcação dos pixels</div>
+        <div class="grid grid-cols-2 mb-10 gap-x-8 mt-2 " [formGroup]="form">
+            <div class="">
+                <p>
+                    Amarelo:
+                </p>
+                <div class="flex items-center gap-x-2">
+                    <button class="bg-blue-300 hover:bg-blue-400 rounded-md h-7">
+                        <p class="texto-bungee text-white text-center text-sm p-1 " style="font-size: 30px;">-</p>
+                    </button>
+                    <input formControlName="amarelo" [max]="4" type="number"
+                        class="border-zinc-950 input-number border-b-2 py-2 rounded-md w-5" />
+                    <button class="bg-blue-300 hover:bg-blue-400 rounded-md h-7">
+                        <p class="texto-bungee text-white text-center text-sm p-1 " style="font-size: 30px;">+</p>
+                    </button>
+                </div>
+            </div>
+            <div class="">
+                <p>
+                    Roxo:
+                </p>
+                <div class="flex items-center gap-x-2">
+                    <button class="bg-blue-300 hover:bg-blue-400 rounded-md h-7">
+                        <p class="texto-bungee text-white text-center text-sm p-1 " style="font-size: 30px;">-</p>
+                    </button>
+                    <input formControlName="roxo" type="number"
+                        class="border-zinc-950 input-number border-b-2 py-2 rounded-md w-5" />
+                    <button class="bg-blue-300 hover:bg-blue-400 rounded-md h-7">
+                        <p class="texto-bungee text-white text-center text-sm p-1 " style="font-size: 30px;">+</p>
+                    </button>
+                </div>
+            </div>
+            <div class="">
+                <p>
+                    Personalizado?
+                </p>
+                <div class="flex items-center gap-x-2">
+                    <button class="bg-blue-300 hover:bg-blue-400 rounded-md h-7">
+                        <p class="texto-bungee text-white text-center text-sm p-1 " style="font-size: 30px;">-</p>
+                    </button>
+                    <input formControlName="roxo" type="number"
+                        class="border-zinc-950 input-number border-b-2 py-2 rounded-md w-5" />
+                    <button class="bg-blue-300 hover:bg-blue-400 rounded-md h-7">
+                        <p class="texto-bungee text-white text-center text-sm p-1 " style="font-size: 30px;">+</p>
+                    </button>
+                </div>
+            </div>
+            <div class="">
+                <p>
+                    Estacionou:
+                </p>
+                <div class="flex items-center gap-x-2">
+                    <button class="bg-blue-300 hover:bg-blue-400 rounded-md h-7">
+                        <p class="texto-bungee text-white text-center text-sm p-1 " style="font-size: 30px;">-</p>
+                    </button>
+                    <input formControlName="roxo" type="number"
+                        class="border-zinc-950 input-number border-b-2 py-2 rounded-md w-5" />
+                    <button class="bg-blue-300 hover:bg-blue-400 rounded-md h-7">
+                        <p class="texto-bungee text-white text-center text-sm p-1 " style="font-size: 30px;">+</p>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <h1 class="texto-bungee text-orange-400 text-center text-sm mb-4 " style="font-size: 20px;">Pontuação Teleoperado
+        </h1>
+        <div class="texto-passion  text-sm font-bold text-center" style="font-size: 16px;">Marcação dos pixels</div>
+        <div class="grid grid-cols-2 grid-rows-2 mb-8 gap-x-4 mt-2" [formGroup]="form">
+            <div class="">
+                <p>
+                    Amarelo:
+                </p>
+                <div class="flex items-center gap-x-2">
+                    <button class="bg-blue-300 hover:bg-blue-400 rounded-md h-7">
+                        <p class="texto-bungee text-white text-center text-sm p-1 " style="font-size: 30px;">-</p>
+                    </button>
+                    <input formControlName="amarelo" type="number"
+                        class="input-number border-zinc-950 border-b-2 py-2 rounded-md w-5" />
+                    <button class="bg-blue-300 hover:bg-blue-400 rounded-md h-7">
+                        <p class="texto-bungee text-white text-center text-sm p-1 " style="font-size: 30px;">+</p>
+                    </button>
+                </div>
+            </div>
+            <div class="">
+                <p>
+                    Roxo:
+                </p>
+                <div class="flex items-center gap-x-2">
+                    <button class="bg-blue-300 hover:bg-blue-400 rounded-md h-7">
+                        <p class="texto-bungee text-white text-center text-sm p-1 " style="font-size: 30px;">-</p>
+                    </button>
+                    <input formControlName="roxo" type="number"
+                        class="border-zinc-950 input-number border-b-2 py-2 rounded-md w-5" />
+                    <button class="bg-blue-300 hover:bg-blue-400 rounded-md h-7">
+                        <p class="texto-bungee text-white text-center text-sm p-1 " style="font-size: 30px;">+</p>
+                    </button>
+                </div>
+            </div>
+            <div class="">
+                <p>
+                    Personalizado?
+                </p>
+                <div class="flex items-center gap-x-2">
+                    <button class="bg-blue-300 hover:bg-blue-400 rounded-md h-7">
+                        <p class="texto-bungee text-white text-center text-sm p-1 " style="font-size: 30px;">-</p>
+                    </button>
+                    <input formControlName="roxo" type="number"
+                        class="border-zinc-950 input-number border-b-2 py-2 rounded-md w-5" />
+                    <button class="bg-blue-300 hover:bg-blue-400 rounded-md h-7">
+                        <p class="texto-bungee text-white text-center text-sm p-1 " style="font-size: 30px;">+</p>
+                    </button>
+                </div>
+            </div>
+            <div class="">
+                <p>
+                    Estacionou:
+                </p>
+                <div class="flex items-center gap-x-2">
+                    <button class="bg-blue-300 hover:bg-blue-400 rounded-md h-7">
+                        <p class="texto-bungee text-white text-center text-sm p-1 " style="font-size: 30px;">-</p>
+                    </button>
+                    <input formControlName="roxo" type="number"
+                        class="border-zinc-950 input-number border-b-2 py-2 rounded-md w-5" />
+                    <button class="bg-blue-300 hover:bg-blue-400 rounded-md h-7">
+                        <p class="texto-bungee text-white text-center text-sm p-1 " style="font-size: 30px;">+</p>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <button class="bg-orange-400 hover:bg-blue-300 w-full rounded-md">
+            <h1 class="texto-bungee text-white text-center text-sm p-2" style="font-size: 30px;">Salvar </h1>
+        </button>
+    </div>
+</div>

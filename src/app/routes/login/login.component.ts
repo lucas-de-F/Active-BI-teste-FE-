@@ -5,7 +5,6 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterOutlet } from '@angular/router';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { environment } from '../../environments/environment';
-import { TextFormComponent } from '../../inputs/text-form/text-form.component';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +15,6 @@ import { TextFormComponent } from '../../inputs/text-form/text-form.component';
     ReactiveFormsModule,
     HttpClientModule,
     ToastrModule,
-    TextFormComponent
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',

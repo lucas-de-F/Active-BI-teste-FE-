@@ -15,7 +15,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { routes } from './app.routes';
 import { TokenInterceptorService } from './guards/auth.interceptor';
 import { LoginComponent } from './routes/login/login.component';
-import { TextFormComponent } from './inputs/text-form/text-form.component';
+import { TeamScoreComponent } from './routes/team-score/team-score.component';
 const routerConfig: ExtraOptions = {
   preloadingStrategy: PreloadAllModules,
   scrollPositionRestoration: 'enabled',

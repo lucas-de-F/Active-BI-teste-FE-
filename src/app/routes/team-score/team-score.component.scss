@@ -1,0 +1,23 @@
+.texto-bungee {
+    font-family: 'Passion One', cursive;
+    font-size: 2rem; /* Ajuste o tamanho conforme necessário */
+  }
+
+  .input-number::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+  .input-number {
+    // -moz-appearance: textfield;
+    width: 50px;
+    height: 40px;
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    /* Adicione aqui outros estilos personalizados */
+  }
+
+  input[type="checkbox"]#checkbox1:checked + span {
+    border-color: red;
+  background-color:red;
+}
