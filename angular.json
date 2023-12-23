@@ -31,6 +31,7 @@
             ],
             "styles": [
               "src/styles.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.css",
               "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": []
@@ -92,6 +93,7 @@
             ],
             "styles": [
               "src/styles.scss",
+              "node_modules/bootstrap/dist/js/bootstrap.js",
               "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": []
