@@ -1,6 +1,6 @@
 import { CommonModule, JsonPipe } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { Component, Inject, Injectable } from '@angular/core';
+import { Component, Inject, Injectable, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterOutlet } from '@angular/router';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
@@ -44,14 +44,18 @@ export class CustomDateParserFormatter extends NgbDateParserFormatter {
   templateUrl: './team-score.component.html',
   styleUrl: './team-score.component.scss'
 })
-export class TeamScoreComponent {
+export class TeamScoreComponent implements OnInit {
  constructor(private fb: FormBuilder, private http: HttpClient,@Inject(ToastrService) private toastr: ToastrService) {
   console.log(moment().daysInMonth())
+ }
+ ngOnInit(): void {
+   this.getTeams()
  }
   checkInput(name: string, error: string) {
     return this.form.get(name)?.touched && this.form.get(name)?.hasError(error);
   }
-
+teams:any[] = []
+formTeam = new FormControl('')
 	model2: NgbDateStruct | undefined = {
      day: Number(moment().format('DD/MM/YYYY').split('/')[0]),
      month: Number(moment().format('DD/MM/YYYY').split('/')[1]),
@@ -107,8 +111,26 @@ export class TeamScoreComponent {
         break;
     }
   }
+  getTeams() {
+    this.http.get(`${environment.baseUrl}team`).subscribe(
+      (res: any) => {
+        console.log(res)
+        this.teams = res
+        this.formTeam.setValue(res[0].id)
+      },
+      ({error}) => {
+
+      })
+
+  }
   post() {
-    this.http.post(`${environment.baseUrl}score`, {date: moment().format('DD/MM/YYYY'),score: [this.form.value, this.form2.value]}).subscribe(
+    if ((this.formTeam.value as string).length < 1) {
+      this.toastr.error("Selecione o Time")
+      return
+    }
+
+    const date = this.model2?.day + '/' + this.model2?.month + '/' + this.model2?.year
+    this.http.post(`${environment.baseUrl}team`, {date, temaId: this.formTeam.value ,score: [this.form.value, this.form2.value]}).subscribe(
       (res) => {
         console.log(res)
       },
