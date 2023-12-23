@@ -116,10 +116,9 @@ formTeam = new FormControl('')
       (res: any) => {
         console.log(res)
         this.teams = res
-        this.formTeam.setValue(res[0].id)
       },
       ({error}) => {
-
+        this.toastr.success("Salvo com sucesso")
       })
 
   }
@@ -133,8 +132,11 @@ formTeam = new FormControl('')
     this.http.post(`${environment.baseUrl}team`, {date, temaId: this.formTeam.value ,score: [this.form.value, this.form2.value]}).subscribe(
       (res) => {
         console.log(res)
+        this.toastr.success("Salvo com sucesso")
+
       },
       ({error}) => {
+        this.toastr.error("Falha ao salvar")
 
       }
     )
