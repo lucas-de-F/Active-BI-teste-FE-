@@ -16,6 +16,8 @@ import { routes } from './app.routes';
 import { TokenInterceptorService } from './guards/auth.interceptor';
 import { LoginComponent } from './routes/login/login.component';
 import { TeamScoreComponent } from './routes/team-score/team-score.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';import 'bootstrap-icons/font/bootstrap-icons.css';
+
 const routerConfig: ExtraOptions = {
   preloadingStrategy: PreloadAllModules,
   scrollPositionRestoration: 'enabled',
@@ -36,6 +38,7 @@ const routerConfig: ExtraOptions = {
       positionClass: 'toast-top-right',
       timeOut: 2500,
     }),
+    NgbModule,
   ],
   providers: [
     AppComponent,

@@ -1,5 +1,30 @@
-<div class="d-flex flex-column justify-content-center align-items-center h-100">
-    <div class="bg-white shadow rounded p-2 w-75 md:w-400">
+<div class="d-flex flex-column justify-content-start align-items-start h-100">
+    <nav class="navbar w-100 navbar-light bg-light d-flex justify-content-center">
+        <form class="d-flex justify-content-between w-75 ">
+            <div class="input-group w-50">
+              <input
+                class="form-control"
+                placeholder="dd/mm/yyyy"
+                name="d2"
+                #c2="ngModel"
+                [(ngModel)]="model2"
+                ngbDatepicker
+                #d2="ngbDatepicker"
+              />
+              <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d2.toggle()" type="button"></button>
+            </div>
+          <div class="w-25">
+
+          </div>
+            <select class="form-select w-50" aria-label="Default select example">
+              <option selected disabled>Selecione o Time</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+          </form>
+  </nav>
+    <div class="bg-white shadow rounded p-2 w-100 md:w-400">
         <h3 class="text-orange-400 text-center ">Pontuação Autônomo</h3>
         <div class="text-muted text-center font-weight-bold mb-1">Marcação dos pixels</div>
         <div [formGroup]="form" class="row g-2 md:mx-5 md:px-5 mt-2 ">
@@ -96,7 +121,7 @@
                 </div>
             </div>
         </div>
-        <button (click)="post()" class="btn btn-primary btn-lg rounded-pill mt-4 p-0 w-100">
+        <button (click)="post()" class="btn btn-primary rounded-sm tn-lg rounded-pill mt-4 p-0 w-100">
             <h1 class="text-white text-center">Salvar</h1>
         </button>
     </div>

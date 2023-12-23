@@ -1,12 +1,32 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, JsonPipe } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { Component, Inject } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Component, Inject, Injectable } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterOutlet } from '@angular/router';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { environment } from '../../environments/environment';
 import moment from 'moment';
+import { NgbDateParserFormatter, NgbDateStruct, NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
+@Injectable()
+export class CustomDateParserFormatter extends NgbDateParserFormatter {
+	readonly DELIMITER = '/';
 
+	parse(value: string): NgbDateStruct | null {
+		if (value) {
+			const date = value.split(this.DELIMITER);
+			return {
+				day: parseInt(date[0], 10),
+				month: parseInt(date[1], 10),
+				year: parseInt(date[2], 10),
+			};
+		}
+		return null;
+	}
+
+	format(date: NgbDateStruct | null): string {
+		return date ? date.day + this.DELIMITER + date.month + this.DELIMITER + date.year : '';
+	}
+}
 @Component({
   selector: 'app-team-score',
   standalone: true,
@@ -15,15 +35,27 @@ import moment from 'moment';
     RouterOutlet,
     ReactiveFormsModule,
     HttpClientModule,
-    ToastrModule,
+    ToastrModule,NgbDatepickerModule,FormsModule, JsonPipe
+  ],
+  providers:[
+		{ provide: NgbDateParserFormatter, useClass: CustomDateParserFormatter },
+	
   ],
   templateUrl: './team-score.component.html',
   styleUrl: './team-score.component.scss'
 })
 export class TeamScoreComponent {
- constructor(private fb: FormBuilder, private http: HttpClient,@Inject(ToastrService) private toastr: ToastrService) {}
+ constructor(private fb: FormBuilder, private http: HttpClient,@Inject(ToastrService) private toastr: ToastrService) {
+  console.log(moment().daysInMonth())
+ }
   checkInput(name: string, error: string) {
     return this.form.get(name)?.touched && this.form.get(name)?.hasError(error);
+  }
+
+	model2: NgbDateStruct | undefined = {
+     day: Number(moment().format('DD/MM/YYYY').split('/')[0]),
+     month: Number(moment().format('DD/MM/YYYY').split('/')[1]),
+     year: Number(moment().format('DD/MM/YYYY').split('/')[2]),
   }
   form = this.fb.group({
     amarelo: [0, [Validators.required]],
