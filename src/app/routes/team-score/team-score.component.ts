@@ -118,7 +118,6 @@ formTeam = new FormControl('')
         this.teams = res
       },
       ({error}) => {
-        this.toastr.success("Salvo com sucesso")
       })
 
   }

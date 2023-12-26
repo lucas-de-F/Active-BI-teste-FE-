@@ -39,6 +39,18 @@ export class TokenInterceptorService implements HttpInterceptor {
             });
           }
         }
-        return next.handle(request);
-      }
+        return  next.handle(request).pipe(
+          catchError((error) => {
+              if (
+                  error instanceof HttpErrorResponse &&
+                  error.status === 403
+              ) {
+                  this.toast.error('Sem permissão para modificações');
+                  localStorage.clear()
+                  this._router.navigate(['/auth/sign-in']);
+              }
+              return throwError(error);
+          })
+        )
+    }
 }
