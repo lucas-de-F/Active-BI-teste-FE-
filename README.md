@@ -1,27 +1,46 @@
-# SenaiApp
+# TESTE FE - ACTIVE BI
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.5.
+## O que será avaliado?
 
-## Development server
+1. Integração com API
+1. Tratamento de Erro
+1. Validação de JWT
+1. Utilização de formulários
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Apresentação do Projeto
 
-## Code scaffolding
+Um sistema feito para um campeonato de robótica, utilizado para o lançamento de pontos __POR EQUIPE__ em determinadas modalidades.
+ao final do teste o Usuário seleciona a equipe, a pontuação em cada aspecto e efetua o lançamento.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Aspectos técnicos
 
-## Build
+1. O sitema conta com uma tela de login, com usuário e senha.
+1. O sistema conta com uma tela de lançamento de pontuação.
+1. A estilização é feita com bootstrap 5 e foi desenvolvida para mobile.
+   
+## Requisitos mínimos :white_check_mark: :white_square_button: :white_square_button: :triangular_flag_on_post:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Rotas da aplicação
 
-## Running unit tests
+O primeiro ponto ao se olhar pra uma apliação são as rotas e os componentes que as compõem. E oque define se a rota será renderizada ou não são os __GUARDS__:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+1. Quando o usuário loga na aplicação, um Token é salvo no LocalStorage. Ao entrar novamente na aplicação devemos verificar se esse token já existe (isso inidica que o usuário já está logado), e caso exista redirecionamos para a tela de lançamento da pontuação do time (TeamScoreComponent). Caso não exista token no localStorage o usuário deverá ser redirecionado para a tela de LOGIN (LoginComponent).
 
-## Running end-to-end tests
+1. Ao passar 24 horas, o __Token__ do usuário expira, e a aplicação deverá fazer a verificação de validade do Token. Caso o token esteja expirado o Usuário tem o localStorage Limpo e volta para o Login.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Login
 
-## Further help
+```normalmente a verificação da segurança de senha é feita no cadastro, porém faremos no login por fins avaliativos.```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+1. Faça uma verificação de senha, de modo que uma senha segura precise ser inserida antes da solicitação de Login.
+    - Precisa ter no mínimo 6 caracteres
+    - Precisa ter no mínimos uma letra maiúscula
+    - Precisa ter no mínimo uma letra minúscula
+    - Precisa ter no mínimo um caracter especial
+
+### Lançamento da pontuação
+
+1. Verificar se uma __EQUIPE__ foi selecionada antes de lançar a pontuação.
+2. Fazer um tratamento de erro caso a requisição falhe
+3. ```(BÔNUS) - Faça com que a mensagem 'Falha ao lançar pontuação' seja exibida para o usuário. Dica: use o ngx-toastr```
+
