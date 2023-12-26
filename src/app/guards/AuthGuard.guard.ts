@@ -23,18 +23,23 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     | UrlTree
     | Observable<boolean | UrlTree>
     | Promise<boolean | UrlTree> {
-    if (localStorage.getItem('token')) {
-      const token = localStorage.getItem('token') as string
-      const user: any = jwtDecode(token);
-      const tokenExpired = Date.now() >= user.exp * 1000;
-      if (!token || tokenExpired) return false;
+      if (localStorage.getItem('token')) {
+        const token = localStorage.getItem('token') as string
+        const user: any = jwtDecode(token);
+        const tokenExpired = Date.now() >= user.exp * 1000;
+        console.log(tokenExpired)
+      if (!token || tokenExpired) {
+        localStorage.clear();
+        this.router.navigate(['/auth/sign-in'])
+        return false;
+      }
       if (route.data['expectedRoles'].includes(user.roleName)) {
         return true
       }
 
       return true;
     } else {
-      localStorage.removeItem('token');
+      localStorage.clear();
       this.router.navigate(['/auth/sign-in'])
       return false;
     }
