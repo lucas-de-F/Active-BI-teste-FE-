@@ -1,27 +1,44 @@
-# SenaiApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.5.
+# TESTE FE - ACTIVE BI
 
-## Development server
+## Apresentação do Projeto
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Um sistema feito para um campeonato de robótica, utilizado para o lançamento de pontos __POR EQUIPE__ em determinadas modalidades.
+ao final do teste o Usuário seleciona a equipe, a pontuação em cada aspecto e efetua o lançamento.
 
-## Code scaffolding
+```
+1. Não é necessário o caminho do Arquivo, no máximo o nome do componente
+2. Dê o máximo de detalhes possíveis
+```
+### Aspectos técnicos
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. O sitema conta com uma tela de login, com usuário e senha.
+1. O sistema conta com uma tela de lançamento de pontuação.
+1. A estilização é feita com bootstrap 5 e foi desenvolvida para mobile.
 
-## Build
+## Requisitos mínimos :white_check_mark: :white_square_button: :white_square_button: :triangular_flag_on_post:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Rotas da aplicação
 
-## Running unit tests
+O primeiro ponto ao se olhar pra uma apliação são as rotas e os componentes que as compõem. E oque define se a rota será renderizada ou não são os __GUARDS__:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Onde a verificação do token é feita?
+Como o token é validado e quais validações são feitas?
+Como e onde é verificado se o usuário está logado ou não?
 
-## Running end-to-end tests
+### Login
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```normalmente a verificação da segurança de senha é feita no cadastro, porém faremos no login por fins avaliativos.```
 
-## Further help
+Como e onde a verificação de segurança de senha é feita?
+Ao ser efetuado o Login, o que acontece?
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Lançamento da pontuação
+
+Qual a condicional feita antes do lançamento da pontuação?
+Qual mensagem de erro é exibida ao usuário ao falhar o lançamento?
+
+### Extras
+
+Quais são as vantagens de usar um framework CSS como o Bootstrap?
+Quais as vantagens de implementar um serviço e como isso melhoraria nosso código?
