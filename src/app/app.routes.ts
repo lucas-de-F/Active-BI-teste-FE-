@@ -51,20 +51,6 @@ export const routes: Routes = [
         ],
     },
     {
-        path: 'app/admin',
-        canActivate: [AuthGuard],
-        canActivateChild: [AuthGuard],
-        data: {
-            expectedRoles: ['Admin'],
-        },
-        children: [
-            {
-                path: 'dashboard',
-                component: TeamScoreComponent
-            },
-        ],
-    },
-    {
         path: '',
         pathMatch: 'full',
         redirectTo: 'auth/sign-in',

@@ -14,7 +14,8 @@ constructor(private router: Router) {
   const token = localStorage.getItem('token') as string
   const user: any = jwtDecode(token);
 
-  user.roleName === 'User' ? this.router.navigate(['/app/user/team-score']) : this.router.navigate(['/app/admin/dashboard']) 
-
+  if (user.roleName === 'User')  {
+    this.router.navigate(['/app/user/team-score'])
+  }
 }
 }

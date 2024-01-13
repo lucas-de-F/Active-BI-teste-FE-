@@ -1,125 +1,239 @@
-<div class="d-flex flex-column justify-content-start align-items-start h-100">
+<div class="d-flex flex-column justify-content-center align-items-center">
     <nav class="navbar w-100 navbar-light bg-light d-flex justify-content-center">
         <form class="d-flex justify-content-between w-75 ">
             <div class="input-group w-50">
-              <input
-                class="form-control"
-                placeholder="dd/mm/yyyy"
-                name="d2"
-                #c2="ngModel"
-                [(ngModel)]="model2"
-                ngbDatepicker
-                #d2="ngbDatepicker"
-              />
-              <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d2.toggle()" type="button"></button>
+                <input class="form-control" placeholder="dd/mm/yyyy" name="d2" #c2="ngModel" [(ngModel)]="model2"
+                    ngbDatepicker #d2="ngbDatepicker" />
+                <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d2.toggle()" type="button"></button>
             </div>
-          <div class="w-25">
-
-          </div>
+            <div class="w-25">
+            </div>
             <select [formControl]="formTeam" class="form-select w-50" aria-label="Default select example">
-              <option *ngFor="let team of teams" [value]="team.id">{{team.name}}</option>
+                <option *ngFor="let team of teams" [value]="team.id">{{team.name}}</option>
             </select>
-          </form>
-  </nav>
-    <div class="bg-white shadow rounded p-2 w-100 md:w-400">
+        </form>
+    </nav>
+    <div class="bg-white shadow rounded p-2 w-75 md:w-400">
         <h3 class="text-orange-400 text-center ">Pontuação Autônomo</h3>
         <div class="text-muted text-center font-weight-bold mb-1">Marcação dos pixels</div>
-        <div [formGroup]="form" class="row g-2 md:mx-5 md:px-5 mt-2 ">
-            <div class="col-6 d-flex justify-content-center">
-                <div>
-                    <p class="text-center">Amarelo:</p>
-                    <div class="btn-group" role="group" aria-label="Basic example">
-                        <button type="button" (click)="decrease('form', 'amarelo')"  class="btn btn-white btn-sm">-</button>
-                        <input formControlName="amarelo" type="number" class="form-control rounded-pill" value="0"
-                            min="0" max="4">
-                        <button (click)="increase('form', 'amarelo')" type="button" class="btn btn-white btn-sm">+</button>
+        <div [formGroup]="form" class="row g-2 md:mx-5 md:px-5 mt-2 d-flex">
+            <div class="d-flex  justify-content-center">
+                <div class="w-25 my-auto mx-1">
+                    TEAM PROP:
+                </div>
+                <div class="w-50 d-flex">
+                    <input type="radio" class="btn-check" name="options-outlined" id="white-pixel" autocomplete="off"
+                        checked>
+                    <label class="btn btn-outline-primary rounded-0 w-75" for="white-pixel">White pixel</label>
+
+                    <input type="radio" class="btn-check" name="options-outlined" id="team-prop" autocomplete="off">
+                    <label class="btn btn-outline-primary rounded-0 w-75" for="team-prop">Team Prop</label>
+                </div>
+            </div>
+            <div class="d-flex  justify-content-center">
+                <div class=" my-auto mx-1 w-25">
+                    PURPLE PIXEL:
+                </div>
+                <div class="w-50 d-flex">
+                    <input type="radio" class="btn-check" name="options-outlined-2" id="success-outlined"
+                        autocomplete="off" checked>
+                    <label class="btn btn-outline-primary rounded-0 w-75" for="success-outlined">No</label>
+
+                    <input type="radio" class="btn-check" name="options-outlined-2" id="danger-outlined"
+                        autocomplete="off">
+                    <label class="btn btn-outline-primary rounded-0 w-75" for="danger-outlined">Spike Mark</label>
+                </div>
+            </div>
+            <div class="d-flex  justify-content-center">
+                <div class=" my-auto mx-1 w-25">
+                    YELLOW PIXEL:
+                </div>
+                <div class="w-50 d-flex">
+                    <input type="radio" class="btn-check" name="options-outlined-3" id="success-outlined-3"
+                        autocomplete="off" checked>
+                    <label class="btn btn-outline-primary rounded-0 w-75" for="success-outlined-3">No</label>
+
+                    <input type="radio" class="btn-check" name="options-outlined-3" id="danger-outlined-3"
+                        autocomplete="off">
+                    <label class="btn btn-outline-primary rounded-0 w-75" for="danger-outlined-3">Backdrop</label>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center">
+                <div class=" my-auto mx-1 w-25">
+                    BACKSTAGE PIXEL:
+                </div>
+                <div class="btn-group w-50" role="group" aria-label="Basic example">
+                    <button type="button" (click)="decrease('form', 'amarelo')"
+                        class="btn btn-primary btn-sm">-</button>
+                    <input formControlName="amarelo" type="number" class="form-control rounded-0 w-50 text-center"
+                        value="0" min="0" max="4">
+                    <button (click)="increase('form', 'amarelo')" type="button"
+                        class="btn btn-primary btn-sm">+</button>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center">
+                <div class=" my-auto mx-1 w-25">
+                    BACKDROP PIXEL:
+                </div>
+                <div class="btn-group w-50" role="group" aria-label="Basic example">
+                    <button type="button" (click)="decrease('form', 'amarelo')"
+                        class="btn btn-primary btn-sm">-</button>
+                    <input formControlName="amarelo" type="number" class="form-control rounded-0 w-50 text-center"
+                        value="0" min="0" max="4">
+                    <button (click)="increase('form', 'amarelo')" type="button"
+                        class="btn btn-primary btn-sm">+</button>
+                </div>
+            </div>
+            <div class="d-flex  justify-content-center">
+                <div class=" my-auto mx-1 w-25">
+                    NAVIGATED:
+                </div>
+                <div class="w-50 d-flex">
+                    <input type="radio" class="btn-check" name="options-outlined-4" id="success-outlined-4"
+                        autocomplete="off" checked>
+                    <label class="btn btn-outline-primary rounded-0 w-75" for="success-outlined-4">No</label>
+
+                    <input type="radio" class="btn-check" name="options-outlined-4" id="danger-outlined-4"
+                        autocomplete="off">
+                    <label class="btn btn-outline-primary rounded-0 w-75" for="danger-outlined-4">Backdrop</label>
+                </div>
+            </div>
+
+            <h3 class="text-orange-400 text-center mt-4">Pontuação Teleoperado</h3>
+            <div class="text-muted text-center font-weight-bold mb-1">Marcação dos pixels</div>
+            <div [formGroup]="form2" class="row g-2 md:mx-5 md:px-5 mt-2 ">
+                <div class="d-flex justify-content-center">
+                    <div class=" my-auto mx-1 w-25">
+                        BACKSTAGE PIXEL:
+                    </div>
+                    <div class="btn-group w-50" role="group" aria-label="Basic example">
+                        <button type="button" (click)="decrease('form', 'amarelo')"
+                            class="btn btn-primary btn-sm">-</button>
+                        <input formControlName="amarelo" type="number" class="form-control rounded-0 w-50 text-center"
+                            value="0" min="0" max="4">
+                        <button (click)="increase('form', 'amarelo')" type="button"
+                            class="btn btn-primary btn-sm">+</button>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <div class=" my-auto mx-1 w-25">
+                        BACKDROP PIXEL:
+                    </div>
+                    <div class="btn-group w-50" role="group" aria-label="Basic example">
+                        <button type="button" (click)="decrease('form', 'amarelo')"
+                            class="btn btn-primary btn-sm">-</button>
+                        <input formControlName="amarelo" type="number" class="form-control rounded-0 w-50 text-center"
+                            value="0" min="0" max="4">
+                        <button (click)="increase('form', 'amarelo')" type="button"
+                            class="btn btn-primary btn-sm">+</button>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <div class=" my-auto mx-1 w-25">
+                        MOSAICS:
+                    </div>
+                    <div class="btn-group w-50" role="group" aria-label="Basic example">
+                        <button type="button" (click)="decrease('form', 'amarelo')"
+                            class="btn btn-primary btn-sm">-</button>
+                        <input formControlName="amarelo" type="number" class="form-control rounded-0 w-50 text-center"
+                            value="0" min="0" max="4">
+                        <button (click)="increase('form', 'amarelo')" type="button"
+                            class="btn btn-primary btn-sm">+</button>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <div class=" my-auto mx-1 w-25 text-uppercase">
+                        Highest Set Line:
+                    </div>
+                    <div class="btn-group w-50" role="group" aria-label="Basic example">
+                        <button type="button" (click)="decrease('form', 'amarelo')"
+                            class="btn btn-primary btn-sm">-</button>
+                        <input formControlName="amarelo" type="number" class="form-control rounded-0 w-50 text-center"
+                            value="0" min="0" max="4">
+                        <button (click)="increase('form', 'amarelo')" type="button"
+                            class="btn btn-primary btn-sm">+</button>
+                    </div>
+                </div>
+
+                <div class="d-flex  justify-content-center">
+                    <div class=" my-auto mx-1 w-25">
+                        LOCATION:
+                    </div>
+                    <div class="w-50 d-flex">
+                        <input type="radio" class="btn-check" name="options-outlined-5" id="success-outlined-5"
+                            autocomplete="off" checked>
+                        <label class="btn btn-outline-primary rounded-0 w-75" for="success-outlined-5">No</label>
+
+                        <input type="radio" class="btn-check" name="options-outlined-5" id="danger-outlined-5"
+                            autocomplete="off">
+                        <label class="btn btn-outline-primary rounded-0 w-75" for="danger-outlined-5">1</label>
+
+                        <input type="radio" class="btn-check" name="options-outlined-5" id="danger-outlined-5"
+                            autocomplete="off">
+                        <label class="btn btn-outline-primary rounded-0 w-75" for="danger-outlined-5">2</label>
+
+                        <input type="radio" class="btn-check" name="options-outlined-5" id="danger-outlined-5"
+                            autocomplete="off">
+                        <label class="btn btn-outline-primary rounded-0 w-75" for="danger-outlined-5">3</label>
+                    </div>
+                </div>
+                <div class="d-flex  justify-content-center">
+                    <div class=" my-auto mx-1 w-25">
+                        NAVIGATED:
+                    </div>
+                    <div class="w-50 d-flex">
+                        <input type="radio" class="btn-check" name="options-outlined-6" id="success-outlined-5"
+                            autocomplete="off" checked>
+                        <label class="btn btn-outline-primary rounded-0 w-75" for="success-outlined-5">No</label>
+
+                        <input type="radio" class="btn-check" name="options-outlined-6" id="danger-outlined-5"
+                            autocomplete="off">
+                        <label class="btn btn-outline-primary rounded-0 w-75" for="danger-outlined-5">1</label>
+
+                        <input type="radio" class="btn-check" name="options-outlined-6" id="danger-outlined-5"
+                            autocomplete="off">
+                        <label class="btn btn-outline-primary rounded-0 w-75" for="danger-outlined-5">2</label>
+
+                        <input type="radio" class="btn-check" name="options-outlined-6" id="danger-outlined-5"
+                            autocomplete="off">
+                        <label class="btn btn-outline-primary rounded-0 w-75" for="danger-outlined-5">3</label>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-center">
+                    <div class=" my-auto mx-1 w-25 text-uppercase">
+                        MAJOR PENALTIES:
+                    </div>
+                    <div class="btn-group w-50" role="group" aria-label="Basic example">
+                        <button type="button" (click)="decrease('form', 'amarelo')"
+                            class="btn btn-primary btn-sm">-</button>
+                        <input formControlName="amarelo" type="number" class="form-control rounded-0 w-50 text-center"
+                            value="0" min="0" max="4">
+                        <button (click)="increase('form', 'amarelo')" type="button"
+                            class="btn btn-primary btn-sm">+</button>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-center">
+                    <div class=" my-auto mx-1 w-25 text-uppercase">
+                        MINOR PENALTIES:
+                    </div>
+                    <div class="btn-group w-50" role="group" aria-label="Basic example">
+                        <button type="button" (click)="decrease('form', 'amarelo')"
+                            class="btn btn-primary btn-sm">-</button>
+                        <input formControlName="amarelo" type="number" class="form-control rounded-0 w-50 text-center"
+                            value="0" min="0" max="4">
+                        <button (click)="increase('form', 'amarelo')" type="button"
+                            class="btn btn-primary btn-sm">+</button>
                     </div>
                 </div>
             </div>
-            <div class="col-6 d-flex justify-content-center">
-                <div>
-                    <p class="text-center">Roxo?</p>
-                    <div class="btn-group" role="group" aria-label="Basic example">
-                        <button  (click)="decrease('form', 'roxo')" type="button" class="btn btn-white btn-sm">-</button>
-                        <input formControlName="roxo" type="number" class="form-control rounded-pill" value="0" min="0"
-                            max="4">
-                        <button type="button" (click)="increase('form', 'roxo')"  class="btn btn-white btn-sm">+</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6 d-flex justify-content-center">
-                <div>
-                    <p class="text-center">Personalizado:</p>
-                    <div class="btn-group" role="group" aria-label="Basic example">
-                        <button type="button" (click)="decrease('form', 'personalizado')" class="btn btn-white btn-sm">-</button>
-                        <input formControlName="personalizado" type="number" class="form-control rounded-pill" value="0"
-                            min="0" max="4">
-                        <button (click)="increase('form', 'personalizado')" type="button" class="btn btn-white btn-sm">+</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6 d-flex justify-content-center">
-                <div>
-                    <p class="text-center">Estacionou?</p>
-                    <div class="btn-group">
-                        <button type="button" (click)="decrease('form', 'estacionou')" class="btn btn-white btn-sm">-</button>
-                        <input formControlName="estacionou" type="number" class="form-control rounded-pill" value="0"
-                            min="0" max="4">
-                        <button type="button"(click)="increase('form', 'estacionou')" class="btn btn-white btn-sm">+</button>
-                    </div>
-                </div>
+            <div class="d-flex justify-content-center mt-4">
+
+                <button (click)="post()" class="btn  btn-primary rounded-sm rounded-0  p-0 w-75 btn-sm">
+                    <h3 class="text-white text-center">Salvar</h3>
+                </button>
             </div>
         </div>
-        <h3 class="text-orange-400 text-center mt-4">Pontuação Teleoperado</h3>
-        <div class="text-muted text-center font-weight-bold mb-1">Marcação dos pixels</div>
-        <div [formGroup]="form2" class="row g-2 md:mx-5 md:px-5 mt-2 ">
-            <div class="col-6 d-flex justify-content-center">
-                <div>
-                    <p class="text-center">Amarelo:</p>
-                    <div class="btn-group" role="group" aria-label="Basic example">
-                        <button type="button" (click)="decrease('form2', 'amarelo')"  class="btn btn-white btn-sm">-</button>
-                        <input formControlName="amarelo" type="number" class="form-control rounded-pill" value="0"
-                            min="0" max="4">
-                        <button (click)="increase('form2', 'amarelo')" type="button" class="btn btn-white btn-sm">+</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6 d-flex justify-content-center">
-                <div>
-                    <p class="text-center">Roxo?</p>
-                    <div class="btn-group" role="group" aria-label="Basic example">
-                        <button  (click)="decrease('form2', 'roxo')" type="button" class="btn btn-white btn-sm">-</button>
-                        <input formControlName="roxo" type="number" class="form-control rounded-pill" value="0" min="0"
-                            max="4">
-                        <button type="button" (click)="increase('form2', 'roxo')"  class="btn btn-white btn-sm">+</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6 d-flex justify-content-center">
-                <div>
-                    <p class="text-center">Personalizado:</p>
-                    <div class="btn-group" role="group" aria-label="Basic example">
-                        <button type="button" (click)="decrease('form2', 'personalizado')" class="btn btn-white btn-sm">-</button>
-                        <input formControlName="personalizado" type="number" class="form-control rounded-pill" value="0"
-                            min="0" max="4">
-                        <button (click)="increase('form2', 'personalizado')" type="button" class="btn btn-white btn-sm">+</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6 d-flex justify-content-center">
-                <div>
-                    <p class="text-center">Estacionou?</p>
-                    <div class="btn-group">
-                        <button type="button" (click)="decrease('form2', 'estacionou')" class="btn btn-white btn-sm">-</button>
-                        <input formControlName="estacionou" type="number" class="form-control rounded-pill" value="0"
-                            min="0" max="4">
-                        <button type="button"(click)="increase('form2', 'estacionou')" class="btn btn-white btn-sm">+</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <button (click)="post()" class="btn btn-primary rounded-sm tn-lg rounded-pill mt-4 p-0 w-100">
-            <h1 class="text-white text-center">Salvar</h1>
-        </button>
     </div>
 </div>
