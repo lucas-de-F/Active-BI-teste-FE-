@@ -1,4 +1,5 @@
 <div class="d-flex flex-column justify-content-center align-items-center">
+
     <nav class="navbar w-100 navbar-light bg-light d-flex justify-content-center">
         <form class="d-flex justify-content-between w-75 ">
             <div class="input-group w-50">
@@ -13,12 +14,12 @@
             </select>
         </form>
     </nav>
-    <div class="bg-white shadow rounded p-2 w-75 md:w-400">
+    <div class="bg-white shadow rounded p-2 page ">
         <h3 class="text-orange-400 text-center ">Pontuação Autônomo</h3>
         <div class="text-muted text-center font-weight-bold mb-1">Marcação dos pixels</div>
-        <div [formGroup]="form" class="row g-2 md:mx-5 md:px-5 mt-2 d-flex">
-            <div class="d-flex  justify-content-center">
-                <div class="w-25 my-auto mx-1">
+        <div [formGroup]="form" class="row g-2 md:mx-5 p-0 m-0 md:px-5 mt-2 d-flex">
+            <div class="d-flex justify-content-between">
+                <div class="md:w-25 my-auto mx-1">
                     TEAM PROP:
                 </div>
                 <div class="w-50 d-flex">
@@ -30,8 +31,8 @@
                     <label class="btn btn-outline-primary rounded-0 w-75" for="team-prop">Team Prop</label>
                 </div>
             </div>
-            <div class="d-flex  justify-content-center">
-                <div class=" my-auto mx-1 w-25">
+            <div class="d-flex justify-content-between">
+                <div class=" my-auto mx-1 md:w-25">
                     PURPLE PIXEL:
                 </div>
                 <div class="w-50 d-flex">
@@ -44,8 +45,8 @@
                     <label class="btn btn-outline-primary rounded-0 w-75" for="danger-outlined">Spike Mark</label>
                 </div>
             </div>
-            <div class="d-flex  justify-content-center">
-                <div class=" my-auto mx-1 w-25">
+            <div class="d-flex justify-content-between">
+                <div class=" my-auto mx-1 md:w-25">
                     YELLOW PIXEL:
                 </div>
                 <div class="w-50 d-flex">
@@ -58,11 +59,11 @@
                     <label class="btn btn-outline-primary rounded-0 w-75" for="danger-outlined-3">Backdrop</label>
                 </div>
             </div>
-            <div class="d-flex justify-content-center">
-                <div class=" my-auto mx-1 w-25">
+            <div class="d-flex justify-content-between">
+                <div class=" my-auto mx-1 md:w-25">
                     BACKSTAGE PIXEL:
                 </div>
-                <div class="btn-group w-50" role="group" aria-label="Basic example">
+                <div class="btn-group w-50 " role="group" aria-label="Basic example">
                     <button type="button" (click)="decrease('form', 'amarelo')"
                         class="btn btn-primary btn-sm">-</button>
                     <input formControlName="amarelo" type="number" class="form-control rounded-0 w-50 text-center"
@@ -71,11 +72,11 @@
                         class="btn btn-primary btn-sm">+</button>
                 </div>
             </div>
-            <div class="d-flex justify-content-center">
-                <div class=" my-auto mx-1 w-25">
+            <div class="d-flex justify-content-between">
+                <div class=" my-auto mx-1 md:w-25">
                     BACKDROP PIXEL:
                 </div>
-                <div class="btn-group w-50" role="group" aria-label="Basic example">
+                <div class="btn-group w-50 " role="group" aria-label="Basic example">
                     <button type="button" (click)="decrease('form', 'amarelo')"
                         class="btn btn-primary btn-sm">-</button>
                     <input formControlName="amarelo" type="number" class="form-control rounded-0 w-50 text-center"
@@ -84,8 +85,8 @@
                         class="btn btn-primary btn-sm">+</button>
                 </div>
             </div>
-            <div class="d-flex  justify-content-center">
-                <div class=" my-auto mx-1 w-25">
+            <div class="d-flex justify-content-between">
+                <div class=" my-auto mx-1 md:w-25">
                     NAVIGATED:
                 </div>
                 <div class="w-50 d-flex">
@@ -102,11 +103,11 @@
             <h3 class="text-orange-400 text-center mt-4">Pontuação Teleoperado</h3>
             <div class="text-muted text-center font-weight-bold mb-1">Marcação dos pixels</div>
             <div [formGroup]="form2" class="row g-2 md:mx-5 md:px-5 mt-2 ">
-                <div class="d-flex justify-content-center">
-                    <div class=" my-auto mx-1 w-25">
+                <div class="d-flex justify-content-between">
+                    <div class=" my-auto mx-1 md:w-25">
                         BACKSTAGE PIXEL:
                     </div>
-                    <div class="btn-group w-50" role="group" aria-label="Basic example">
+                    <div class="btn-group w-50 " role="group" aria-label="Basic example">
                         <button type="button" (click)="decrease('form', 'amarelo')"
                             class="btn btn-primary btn-sm">-</button>
                         <input formControlName="amarelo" type="number" class="form-control rounded-0 w-50 text-center"
@@ -115,11 +116,11 @@
                             class="btn btn-primary btn-sm">+</button>
                     </div>
                 </div>
-                <div class="d-flex justify-content-center">
-                    <div class=" my-auto mx-1 w-25">
+                <div class="d-flex justify-content-between">
+                    <div class=" my-auto mx-1 md:w-25">
                         BACKDROP PIXEL:
                     </div>
-                    <div class="btn-group w-50" role="group" aria-label="Basic example">
+                    <div class="btn-group w-50 " role="group" aria-label="Basic example">
                         <button type="button" (click)="decrease('form', 'amarelo')"
                             class="btn btn-primary btn-sm">-</button>
                         <input formControlName="amarelo" type="number" class="form-control rounded-0 w-50 text-center"
@@ -128,11 +129,11 @@
                             class="btn btn-primary btn-sm">+</button>
                     </div>
                 </div>
-                <div class="d-flex justify-content-center">
-                    <div class=" my-auto mx-1 w-25">
+                <div class="d-flex justify-content-between">
+                    <div class=" my-auto mx-1 md:w-25">
                         MOSAICS:
                     </div>
-                    <div class="btn-group w-50" role="group" aria-label="Basic example">
+                    <div class="btn-group w-50 " role="group" aria-label="Basic example">
                         <button type="button" (click)="decrease('form', 'amarelo')"
                             class="btn btn-primary btn-sm">-</button>
                         <input formControlName="amarelo" type="number" class="form-control rounded-0 w-50 text-center"
@@ -141,11 +142,11 @@
                             class="btn btn-primary btn-sm">+</button>
                     </div>
                 </div>
-                <div class="d-flex justify-content-center">
-                    <div class=" my-auto mx-1 w-25 text-uppercase">
+                <div class="d-flex justify-content-between">
+                    <div class=" my-auto mx-1 md:md:w-25 text-uppercase">
                         Highest Set Line:
                     </div>
-                    <div class="btn-group w-50" role="group" aria-label="Basic example">
+                    <div class="btn-group w-50 " role="group" aria-label="Basic example">
                         <button type="button" (click)="decrease('form', 'amarelo')"
                             class="btn btn-primary btn-sm">-</button>
                         <input formControlName="amarelo" type="number" class="form-control rounded-0 w-50 text-center"
@@ -155,8 +156,8 @@
                     </div>
                 </div>
 
-                <div class="d-flex  justify-content-center">
-                    <div class=" my-auto mx-1 w-25">
+                <div class="d-flex justify-content-between">
+                    <div class=" my-auto mx-1 md:w-25">
                         LOCATION:
                     </div>
                     <div class="w-50 d-flex">
@@ -177,8 +178,8 @@
                         <label class="btn btn-outline-primary rounded-0 w-75" for="danger-outlined-5">3</label>
                     </div>
                 </div>
-                <div class="d-flex  justify-content-center">
-                    <div class=" my-auto mx-1 w-25">
+                <div class="d-flex justify-content-between">
+                    <div class=" my-auto mx-1 md:w-25">
                         NAVIGATED:
                     </div>
                     <div class="w-50 d-flex">
@@ -200,11 +201,11 @@
                     </div>
                 </div>
 
-                <div class="d-flex justify-content-center">
-                    <div class=" my-auto mx-1 w-25 text-uppercase">
+                <div class="d-flex justify-content-between">
+                    <div class=" my-auto mx-1 md:md:w-25 text-uppercase">
                         MAJOR PENALTIES:
                     </div>
-                    <div class="btn-group w-50" role="group" aria-label="Basic example">
+                    <div class="btn-group w-50 " role="group" aria-label="Basic example">
                         <button type="button" (click)="decrease('form', 'amarelo')"
                             class="btn btn-primary btn-sm">-</button>
                         <input formControlName="amarelo" type="number" class="form-control rounded-0 w-50 text-center"
@@ -214,11 +215,11 @@
                     </div>
                 </div>
 
-                <div class="d-flex justify-content-center">
-                    <div class=" my-auto mx-1 w-25 text-uppercase">
+                <div class="d-flex justify-content-between">
+                    <div class=" my-auto mx-1 md:md:w-25 text-uppercase">
                         MINOR PENALTIES:
                     </div>
-                    <div class="btn-group w-50" role="group" aria-label="Basic example">
+                    <div class="btn-group w-50 " role="group" aria-label="Basic example">
                         <button type="button" (click)="decrease('form', 'amarelo')"
                             class="btn btn-primary btn-sm">-</button>
                         <input formControlName="amarelo" type="number" class="form-control rounded-0 w-50 text-center"
@@ -228,12 +229,19 @@
                     </div>
                 </div>
             </div>
-            <div class="d-flex justify-content-center mt-4">
+            <div class="d-flex  justify-content-center mt-4">
 
-                <button (click)="post()" class="btn  btn-primary rounded-sm rounded-0  p-0 w-75 btn-sm">
+                <button (click)="post()" class="btn  btn-primary rounded-sm rounded-0  p-0 w-75  btn-sm">
                     <h3 class="text-white text-center">Salvar</h3>
                 </button>
             </div>
         </div>
     </div>
+
+    <nav class="navbar w-100 navbar-light mt-4 bg-light d-flex justify-content-center items-center">
+        <p class="text-secondary my-0 mx-3">
+            Powered by
+                </p>
+        <img src="assets/logo-calara.webp" style="width: 120px;" alt="">
+    </nav>
 </div>
