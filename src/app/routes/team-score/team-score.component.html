@@ -1,7 +1,11 @@
-<div class="d-flex flex-column justify-content-center align-items-center">
-
-    <nav class="navbar w-100 navbar-light bg-light d-flex justify-content-center">
-        <form class="d-flex justify-content-between w-75 ">
+<nav class="navbar navbar-light fixed-top w-100 bg-light d-flex justify-content-center items-center">
+    <p class="text-secondary my-0 mx-3">
+        TOTAL SCORE: {{score}}
+            </p>
+</nav>
+<div class="d-flex flex-column justify-content-center align-items-center" style="margin-top: 40px;">
+    <nav class="navbar page navbar-light bg-light d-flex justify-content-center">
+        <form class="d-flex justify-content-between w-100 mx-4 ">
             <div class="input-group w-50">
                 <input class="form-control" placeholder="dd/mm/yyyy" name="d2" #c2="ngModel" [(ngModel)]="model2"
                     ngbDatepicker #d2="ngbDatepicker" />
@@ -9,7 +13,7 @@
             </div>
             <div class="w-25">
             </div>
-            <select [formControl]="formTeam" class="form-select w-50" aria-label="Default select example">
+            <select [formControl]="formTeam" class="form-select w-50" placeholder="oioi" aria-label="Default select example">
                 <option *ngFor="let team of teams" [value]="team.id">{{team.name}}</option>
             </select>
         </form>
@@ -23,12 +27,11 @@
                     TEAM PROP:
                 </div>
                 <div class="w-50 d-flex">
-                    <input type="radio" class="btn-check" name="options-outlined" id="white-pixel" autocomplete="off"
-                        checked>
-                    <label class="btn btn-outline-primary rounded-0 w-75" for="white-pixel">White pixel</label>
+                    <input type="radio" class="btn-check" (click)="setFormValue('teamProp', 0)" name="team-prop" id="teamProp" autocomplete="off" checked>
+                    <label class="btn btn-outline-primary rounded-0 w-75" for="teamProp">White pixel</label>
 
-                    <input type="radio" class="btn-check" name="options-outlined" id="team-prop" autocomplete="off">
-                    <label class="btn btn-outline-primary rounded-0 w-75" for="team-prop">Team Prop</label>
+                    <input type="radio" class="btn-check" (click)="setFormValue('teamProp', 10)" name="team-prop" id="whitePixel" autocomplete="off">
+                    <label class="btn btn-outline-primary rounded-0 w-75" for="whitePixel">Team Prop</label>
                 </div>
             </div>
             <div class="d-flex justify-content-between">
@@ -36,11 +39,11 @@
                     PURPLE PIXEL:
                 </div>
                 <div class="w-50 d-flex">
-                    <input type="radio" class="btn-check" name="options-outlined-2" id="success-outlined"
+                    <input type="radio" class="btn-check" (click)="setFormValue('purplePixel', 0)" name="purplePixel" id="success-outlined"
                         autocomplete="off" checked>
                     <label class="btn btn-outline-primary rounded-0 w-75" for="success-outlined">No</label>
 
-                    <input type="radio" class="btn-check" name="options-outlined-2" id="danger-outlined"
+                    <input type="radio" class="btn-check" (click)="setFormValue('purplePixel', 10)" name="purplePixel" id="danger-outlined"
                         autocomplete="off">
                     <label class="btn btn-outline-primary rounded-0 w-75" for="danger-outlined">Spike Mark</label>
                 </div>
@@ -50,11 +53,11 @@
                     YELLOW PIXEL:
                 </div>
                 <div class="w-50 d-flex">
-                    <input type="radio" class="btn-check" name="options-outlined-3" id="success-outlined-3"
+                    <input type="radio" class="btn-check"  (click)="setFormValue('yellowPixel', 0)" name="options-outlined-3" id="success-outlined-3"
                         autocomplete="off" checked>
                     <label class="btn btn-outline-primary rounded-0 w-75" for="success-outlined-3">No</label>
 
-                    <input type="radio" class="btn-check" name="options-outlined-3" id="danger-outlined-3"
+                    <input type="radio" class="btn-check" name="options-outlined-3"  (click)="setFormValue('yellowPixel', 10)" id="danger-outlined-3"
                         autocomplete="off">
                     <label class="btn btn-outline-primary rounded-0 w-75" for="danger-outlined-3">Backdrop</label>
                 </div>
@@ -64,11 +67,11 @@
                     BACKSTAGE PIXEL:
                 </div>
                 <div class="btn-group w-50 " role="group" aria-label="Basic example">
-                    <button type="button" (click)="decrease('form', 'amarelo')"
+                    <button type="button" (click)="decrease('form', 'backstagePixel')"
                         class="btn btn-primary btn-sm">-</button>
-                    <input formControlName="amarelo" type="number" class="form-control rounded-0 w-50 text-center"
+                    <input formControlName="backstagePixel" type="number" class="form-control rounded-0 w-50 text-center"
                         value="0" min="0" max="4">
-                    <button (click)="increase('form', 'amarelo')" type="button"
+                    <button (click)="increase('form', 'backstagePixel')" type="button"
                         class="btn btn-primary btn-sm">+</button>
                 </div>
             </div>
@@ -77,11 +80,11 @@
                     BACKDROP PIXEL:
                 </div>
                 <div class="btn-group w-50 " role="group" aria-label="Basic example">
-                    <button type="button" (click)="decrease('form', 'amarelo')"
+                    <button type="button" (click)="decrease('form', 'backsdropPixel')"
                         class="btn btn-primary btn-sm">-</button>
-                    <input formControlName="amarelo" type="number" class="form-control rounded-0 w-50 text-center"
+                    <input formControlName="backsdropPixel" type="number" class="form-control rounded-0 w-50 text-center"
                         value="0" min="0" max="4">
-                    <button (click)="increase('form', 'amarelo')" type="button"
+                    <button (click)="increase('form', 'backsdropPixel')" type="button"
                         class="btn btn-primary btn-sm">+</button>
                 </div>
             </div>
@@ -90,11 +93,11 @@
                     NAVIGATED:
                 </div>
                 <div class="w-50 d-flex">
-                    <input type="radio" class="btn-check" name="options-outlined-4" id="success-outlined-4"
+                    <input type="radio" class="btn-check" (click)="setFormValue('navigated', 0)" name="options-outlined-4" id="success-outlined-4"
                         autocomplete="off" checked>
                     <label class="btn btn-outline-primary rounded-0 w-75" for="success-outlined-4">No</label>
 
-                    <input type="radio" class="btn-check" name="options-outlined-4" id="danger-outlined-4"
+                    <input type="radio" class="btn-check" (click)="setFormValue('navigated', 5)" name="options-outlined-4" id="danger-outlined-4"
                         autocomplete="off">
                     <label class="btn btn-outline-primary rounded-0 w-75" for="danger-outlined-4">Backdrop</label>
                 </div>
@@ -108,11 +111,11 @@
                         BACKSTAGE PIXEL:
                     </div>
                     <div class="btn-group w-50 " role="group" aria-label="Basic example">
-                        <button type="button" (click)="decrease('form', 'amarelo')"
+                        <button type="button" (click)="decrease('form2', 'backstagePixel')"
                             class="btn btn-primary btn-sm">-</button>
-                        <input formControlName="amarelo" type="number" class="form-control rounded-0 w-50 text-center"
+                        <input formControlName="backstagePixel" type="number" class="form-control rounded-0 w-50 text-center"
                             value="0" min="0" max="4">
-                        <button (click)="increase('form', 'amarelo')" type="button"
+                        <button (click)="increase('form2', 'backstagePixel')" type="button"
                             class="btn btn-primary btn-sm">+</button>
                     </div>
                 </div>
@@ -121,11 +124,11 @@
                         BACKDROP PIXEL:
                     </div>
                     <div class="btn-group w-50 " role="group" aria-label="Basic example">
-                        <button type="button" (click)="decrease('form', 'amarelo')"
+                        <button type="button" (click)="decrease('form2', 'backsdropPixel')"
                             class="btn btn-primary btn-sm">-</button>
-                        <input formControlName="amarelo" type="number" class="form-control rounded-0 w-50 text-center"
+                        <input formControlName="backsdropPixel" type="number" class="form-control rounded-0 w-50 text-center"
                             value="0" min="0" max="4">
-                        <button (click)="increase('form', 'amarelo')" type="button"
+                        <button (click)="increase('form2', 'backsdropPixel')" type="button"
                             class="btn btn-primary btn-sm">+</button>
                     </div>
                 </div>
@@ -134,11 +137,11 @@
                         MOSAICS:
                     </div>
                     <div class="btn-group w-50 " role="group" aria-label="Basic example">
-                        <button type="button" (click)="decrease('form', 'amarelo')"
+                        <button type="button" (click)="decrease('form2', 'mosaics')"
                             class="btn btn-primary btn-sm">-</button>
-                        <input formControlName="amarelo" type="number" class="form-control rounded-0 w-50 text-center"
+                        <input formControlName="mosaics" type="number" class="form-control rounded-0 w-50 text-center"
                             value="0" min="0" max="4">
-                        <button (click)="increase('form', 'amarelo')" type="button"
+                        <button (click)="increase('form2', 'mosaics')" type="button"
                             class="btn btn-primary btn-sm">+</button>
                     </div>
                 </div>
@@ -147,57 +150,53 @@
                         Highest Set Line:
                     </div>
                     <div class="btn-group w-50 " role="group" aria-label="Basic example">
-                        <button type="button" (click)="decrease('form', 'amarelo')"
+                        <button type="button" (click)="decrease('form2', 'highestSetLine')"
                             class="btn btn-primary btn-sm">-</button>
-                        <input formControlName="amarelo" type="number" class="form-control rounded-0 w-50 text-center"
+                        <input formControlName="highestSetLine" type="number" class="form-control rounded-0 w-50 text-center"
                             value="0" min="0" max="4">
-                        <button (click)="increase('form', 'amarelo')" type="button"
+                        <button (click)="increase('form2', 'highestSetLine')" type="button"
                             class="btn btn-primary btn-sm">+</button>
                     </div>
                 </div>
 
                 <div class="d-flex justify-content-between">
                     <div class=" my-auto mx-1 md:w-25">
-                        LOCATION:
+                        DRONE ZONE:
                     </div>
                     <div class="w-50 d-flex">
-                        <input type="radio" class="btn-check" name="options-outlined-5" id="success-outlined-5"
+                        <input type="radio" class="btn-check" (click)="setForm2Value('droneZone', 0)" name="drone" id="drone-no"
                             autocomplete="off" checked>
-                        <label class="btn btn-outline-primary rounded-0 w-75" for="success-outlined-5">No</label>
+                        <label class="btn btn-outline-primary rounded-0 w-75" for="drone-no">No</label>
 
-                        <input type="radio" class="btn-check" name="options-outlined-5" id="danger-outlined-5"
+                        <input type="radio" class="btn-check" (click)="setForm2Value('droneZone', 30)" name="drone" id="drone-1"
                             autocomplete="off">
-                        <label class="btn btn-outline-primary rounded-0 w-75" for="danger-outlined-5">1</label>
+                        <label class="btn btn-outline-primary rounded-0 w-75" for="drone-1">1</label>
 
-                        <input type="radio" class="btn-check" name="options-outlined-5" id="danger-outlined-5"
+                        <input type="radio" class="btn-check" (click)="setForm2Value('droneZone', 20)" name="drone" id="drone-2"
                             autocomplete="off">
-                        <label class="btn btn-outline-primary rounded-0 w-75" for="danger-outlined-5">2</label>
+                        <label class="btn btn-outline-primary rounded-0 w-75" for="drone-2">2</label>
 
-                        <input type="radio" class="btn-check" name="options-outlined-5" id="danger-outlined-5"
+                        <input type="radio" class="btn-check" (click)="setForm2Value('droneZone', 10)" name="drone" id="drone-3"
                             autocomplete="off">
-                        <label class="btn btn-outline-primary rounded-0 w-75" for="danger-outlined-5">3</label>
+                        <label class="btn btn-outline-primary rounded-0 w-75" for="drone-3">3</label>
                     </div>
                 </div>
                 <div class="d-flex justify-content-between">
                     <div class=" my-auto mx-1 md:w-25">
-                        NAVIGATED:
+                        LOCATION:
                     </div>
                     <div class="w-50 d-flex">
-                        <input type="radio" class="btn-check" name="options-outlined-6" id="success-outlined-5"
+                        <input type="radio" class="btn-check" (click)="setForm2Value('location', 0)" name="location" id="location-no"
                             autocomplete="off" checked>
-                        <label class="btn btn-outline-primary rounded-0 w-75" for="success-outlined-5">No</label>
+                        <label class="btn btn-outline-primary rounded-0 w-75" for="location-no">No</label>
 
-                        <input type="radio" class="btn-check" name="options-outlined-6" id="danger-outlined-5"
+                        <input type="radio" class="btn-check" (click)="setForm2Value('location', 5)" name="location" id="location-backstage"
                             autocomplete="off">
-                        <label class="btn btn-outline-primary rounded-0 w-75" for="danger-outlined-5">1</label>
+                        <label class="btn btn-outline-primary rounded-0 w-75" for="location-backstage">Backstage</label>
 
-                        <input type="radio" class="btn-check" name="options-outlined-6" id="danger-outlined-5"
+                        <input type="radio" class="btn-check"  (click)="setForm2Value('location', 20)" name="location" id="location-rigging"
                             autocomplete="off">
-                        <label class="btn btn-outline-primary rounded-0 w-75" for="danger-outlined-5">2</label>
-
-                        <input type="radio" class="btn-check" name="options-outlined-6" id="danger-outlined-5"
-                            autocomplete="off">
-                        <label class="btn btn-outline-primary rounded-0 w-75" for="danger-outlined-5">3</label>
+                        <label class="btn btn-outline-primary rounded-0 w-75" for="location-rigging">Rigging</label>
                     </div>
                 </div>
 
@@ -206,11 +205,11 @@
                         MAJOR PENALTIES:
                     </div>
                     <div class="btn-group w-50 " role="group" aria-label="Basic example">
-                        <button type="button" (click)="decrease('form', 'amarelo')"
+                        <button type="button" (click)="decrease('form2', 'majorPenalities')"
                             class="btn btn-primary btn-sm">-</button>
-                        <input formControlName="amarelo" type="number" class="form-control rounded-0 w-50 text-center"
+                        <input formControlName="majorPenalities" formControlName="majorPenalities" type="number" class="form-control rounded-0 w-50 text-center"
                             value="0" min="0" max="4">
-                        <button (click)="increase('form', 'amarelo')" type="button"
+                        <button (click)="increase('form2', 'majorPenalities')" type="button"
                             class="btn btn-primary btn-sm">+</button>
                     </div>
                 </div>
@@ -220,11 +219,11 @@
                         MINOR PENALTIES:
                     </div>
                     <div class="btn-group w-50 " role="group" aria-label="Basic example">
-                        <button type="button" (click)="decrease('form', 'amarelo')"
+                        <button type="button" (click)="decrease('form2', 'minorPenalities')"
                             class="btn btn-primary btn-sm">-</button>
-                        <input formControlName="amarelo" type="number" class="form-control rounded-0 w-50 text-center"
+                        <input formControlName="minorPenalities" type="number" class="form-control rounded-0 w-50 text-center"
                             value="0" min="0" max="4">
-                        <button (click)="increase('form', 'amarelo')" type="button"
+                        <button (click)="increase('form2', 'minorPenalities')" type="button"
                             class="btn btn-primary btn-sm">+</button>
                     </div>
                 </div>
